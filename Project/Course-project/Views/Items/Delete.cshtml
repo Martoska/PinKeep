@@ -1,0 +1,116 @@
+﻿@model DetailsItemViewModel
+
+@{
+	ViewData["Title"] = "Delete";
+}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+    <script src="//js.pusher.com/4.0/pusher.min.js"></script>
+<div class="container">
+<section class="jumbotron text-center">
+	<div class="container">
+		<h1 class="jumbotron-heading">Delete this item?</h1>
+		<p>
+				<form method="post" asp-controller="Items" asp-action="Delete" asp-route-id="@Model.item.Id">
+					<input type="submit" value="Delete" class="btn btn-danger"></>
+					<input type="submit" value="Return to board" asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@Model.collection.Id" class="btn btn-secondary"> </>
+				</form>
+		</p>
+	</div>
+</section>
+	<h1 class="my-4">
+		@Model.item.Name
+		</h1>
+		<h3> 	<a asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@Model.collection.Id" > @Model.collection.Name</a> </h3>
+	<div class="row">
+		<div class="col-md-8">
+			<img class="img-fluid" src="@Model.item.ImagePath" alt="">
+		</div>
+
+		<div class="col-md-4">
+			<h3 class="my-3">Board type</h3>
+			<p>@Model.collection.Type</p>
+			<h3 class="my-3">Tags</h3>
+			@foreach(var tag in Model.tags)
+			{
+				<a asp-area="" asp-controller="Items" asp-action="TagSearch" asp-route-id="@tag.Name" class="btn btn-secondary my-2">@tag.Name</a>
+			}
+			@if (Model.collection.StringName1 != null)
+			{
+				<h5 class="my-3">@Model.collection.StringName1</h5>
+				<p>@Model.item.StringCustom1</p>
+			}
+			@if (Model.collection.StringName2 != null)
+			{
+				<h5 class="my-3">@Model.collection.StringName2</h5>
+				<p>@Model.item.StringCustom2</p>
+			}
+			@if (Model.collection.StringName3 != null)
+			{
+				<h5 class="my-3">@Model.collection.StringName3</h5>
+				<p>@Model.item.StringCustom3</p>
+			}
+			@if (Model.collection.LargeStringName1 != null)
+			{
+				<h3 class="my-3">@Model.collection.LargeStringName1</h3>
+				<p>@Model.item.LargeDescriptionCustom1</p>
+			}
+			@if (Model.collection.LargeStringName2 != null)
+			{
+				<h3 class="my-3">@Model.collection.LargeStringName2</h3>
+				<p>@Model.item.LargeDescriptionCustom2</p>
+			}
+			@if (Model.collection.LargeStringName3 != null)
+			{
+				<h3 class="my-3">@Model.collection.LargeStringName3</h3>
+				<p>@Model.item.LargeDescriptionCustom3</p>
+			}
+			<h3 class="my-3">Pin Details</h3>
+			<ul>
+
+				@if (Model.collection.IntName1 != null)
+				{
+					<li>@Model.collection.IntName1 - @Model.item.IntCustom1</li>
+				}
+				@if (Model.collection.IntName2 != null)
+				{
+					<li>@Model.collection.IntName2 - @Model.item.IntCustom2</li>
+				}
+				@if (Model.collection.IntName3 != null)
+				{
+					<li>@Model.collection.IntName3 - @Model.item.IntCustom3</li>
+				}
+
+				@if (Model.collection.DateName1 != null)
+				{
+					<li>@Model.collection.DateName1 - @Model.item.DateCustom1</li>
+				}
+				@if (Model.collection.DateName2 != null)
+				{
+					<li>@Model.collection.DateName2 - @Model.item.DateCustom2</li>
+				}
+				@if (Model.collection.DateName3 != null)
+				{
+					<li>@Model.collection.DateName3 - @Model.item.DateCustom3</li>
+				}
+
+				@if (Model.collection.BoolName1 != null)
+				{
+					<li>@Model.collection.BoolName1 - @Model.item.BoolCustom1</li>
+				}
+				@if (Model.collection.BoolName2 != null)
+				{
+					<li>@Model.collection.BoolName2 - @Model.item.BoolCustom2</li>
+				}
+				@if (Model.collection.BoolName3 != null)
+				{
+					<li>@Model.collection.BoolName3 - @Model.item.BoolCustom3</li>
+				}
+			</ul>
+			<h3 class="my-3">Likes</h3>
+		<div class="my-3">
+			<ul class="my-3" id="likes"></ul>    
+		</div>
+		<ul>
+
+

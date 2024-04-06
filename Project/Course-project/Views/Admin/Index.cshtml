@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IndexAdminViewModel
+
+<h1>Users Table</h1>
+<table class="table">
+	<tr>
+		<th>
+			Name
+		</th>
+		<th>
+			Email
+		</th>
+		<th>
+			Role
+		</th>
+		<th>
+			Status
+		</th>
+		<th>
+			Links
+		</th>
+	</tr>
+	@for (int i = 0; i < Model.Users.Count();i++)
+	{
+		<tr>
+			<td>
+				<a asp-action="UserPage" asp-controller="Account" asp-route-id="@Model.Users[i].Id" asp-route-name="@Model.Users[i].UserName">@Model.Users[i].UserName</a>
+			</td>
+			<td>@Model.Users[i].Email</td>
+			
+			<td> 
+				<a asp-action="ChangeRole" asp-controller="Admin" asp-route-id="@Model.Users[i].Id">@Model.Roles[i]</a>
+			</td>
+			<td>
+				<form method="post">
+					@if (!Model.Users[i].LockoutEnabled) 
+					{
+						<a asp-action="Block" asp-controller="Admin" asp-route-id="@Model.Users[i].Id">Block</a> 
+					}
+					else
+					{
+						<a asp-action="Unblock" asp-controller="Admin" asp-route-id="@Model.Users[i].Id">Unblock</a> 
+					}
+									</form>
+			</td>
+						<td>
+											<form method="post">
+					<a asp-action="Delete" asp-controller="Admin" asp-route-id="@Model.Users[i].Id">Delete</a> 
+				</form>
+			</td>
+		</tr>
+	}
+</table>

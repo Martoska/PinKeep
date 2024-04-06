@@ -1,0 +1,281 @@
+﻿@using Course_project.Models.Enums
+@using Course_project.Models
+@model CreateCollectionViewModel
+
+@{
+	ViewData["Title"] = "Create Collection";
+}
+
+<h1>Create Board</h1>
+
+<hr />
+<div class="row">
+	<div class="col-6 col-lg-5">
+		<form method="post">
+
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Name" class="control-label"></label>
+				<input asp-for="Name" class="form-control" placeholder="Name of board" />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Description" class="control-label"></label>
+				<textarea <input asp-for="Description" class="form-control" placeholder="Description"/> </textarea>
+			</div>
+			<div class="form-group">
+				<div class="col">
+					<label asp-for="Type" class="control-label"></label>
+					<select asp-for="Type" asp-items="@Html.GetEnumSelectList<CollectionType>()" class="form-control">
+						<option>--Select collection type--</option>
+					</select>
+					<span asp-validation-for="Type" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+
+					<div class="col-md-8">
+
+						@* <input asp-for="IntExtraField" class="checkbox" id="bloggood1" onchange="showOrHide('bloggood1', 'cat1');" />
+						<label>Integer extra fields</label> *@
+						<div id='cat1' style='display: none;'>
+							<div class="album py-3 bg-light">
+								<div class="container">
+									<div>Names for the int fields</div>
+
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood6" onchange="showOrHide('bloggood6', 'cat6');" />
+											<label>Name 1</label>
+										</div>
+										<div class="col">
+											<div id='cat6' style='display: none;'>
+												<input asp-for="IntName1" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood7" onchange="showOrHide('bloggood7', 'cat7');" />
+											<label>Name 2</label>
+										</div>
+										<div class="col">
+											<div id='cat7' style='display: none;'>
+												<input asp-for="IntName2" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood8" onchange="showOrHide('bloggood8', 'cat8');" />
+											<label>Name 3</label>
+										</div>
+										<div class="col">
+											<div id='cat8' style='display: none;'>
+												<input asp-for="IntName3" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									</>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-md-8">
+							@* <input asp-for="StringExtraField" class="checkbox" id="bloggood2" onchange="showOrHide('bloggood2', 'cat2');" />
+							<label class="control-label">String extra fields</label> *@
+							<div id='cat2' style='display: none;'>
+								<div class="album py-3 bg-light">
+									<div class="container">
+										<div>Names for the string fields</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood9" onchange="showOrHide('bloggood9', 'cat9');" />
+											<label>Name 1</label>
+										</div>
+										<div class="col">
+											<div id='cat9' style='display: none;'>
+												<input asp-for="StringName1" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood10" onchange="showOrHide('bloggood10', 'cat10');" />
+											<label>Name 2</label>
+										</div>
+										<div class="col">
+											<div id='cat10' style='display: none;'>
+												<input asp-for="StringName2" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood11" onchange="showOrHide('bloggood11', 'cat11');" />
+											<label>Name 3</label>
+										</div>
+										<div class="col">
+											<div id='cat11' style='display: none;'>
+												<input asp-for="StringName3" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							@* <input asp-for="DateExtraField" class="checkbox" id="bloggood3" onchange="showOrHide('bloggood3', 'cat3');" />
+							<label class="control-label">Date extra fields</label> *@
+							<div id='cat3' style='display: none;'>
+								<div class="album py-3 bg-light">
+									<div class="container">
+										<div>Names for the date fields</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood12" onchange="showOrHide('bloggood12', 'cat12');" />
+											<label>Name 1</label>
+										</div>
+										<div class="col">
+											<div id='cat12' style='display: none;'>
+												<input asp-for="DateName1" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood13" onchange="showOrHide('bloggood13', 'cat13');" />
+											<label>Name 2</label>
+										</div>
+										<div class="col">
+											<div id='cat13' style='display: none;'>
+												<input asp-for="DateName2" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood14" onchange="showOrHide('bloggood14', 'cat14');" />
+											<label>Name 3</label>
+										</div>
+										<div class="col">
+											<div id='cat14' style='display: none;'>
+												<input asp-for="DateName3" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							@* <input asp-for="LargeStringExtraField" class="checkbox" id="bloggood4" onchange="showOrHide('bloggood4', 'cat4');" />
+							<label class="control-label">Large string extra fields</label> *@
+							<div id='cat4' style='display: none;'>
+								<div class="album py-3 bg-light">
+									<div class="container">
+										<div>Names for the large string fields</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood15" onchange="showOrHide('bloggood15', 'cat15');" />
+											<label>Name 1</label>
+										</div>
+										<div class="col">
+											<div id='cat15' style='display: none;'>
+												<input asp-for="LargeStringName1" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood16" onchange="showOrHide('bloggood16', 'cat16');" />
+											<label>Name 2</label>
+										</div>
+										<div class="col">
+											<div id='cat16' style='display: none;'>
+												<input asp-for="LargeStringName2" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood17" onchange="showOrHide('bloggood17', 'cat17');" />
+											<label>Name 3</label>
+										</div>
+										<div class="col">
+											<div id='cat17' style='display: none;'>
+												<input asp-for="LargeStringName3" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							@* <input asp-for="BoolExtraField" class="checkbox" id="bloggood5" onchange="showOrHide('bloggood5', 'cat5');" />
+							<label class="control-label">Bool extra fields</label> *@
+							<div id='cat5' style='display: none;'>
+								<div class="album py-3 bg-light">
+									<div class="container">
+										<div>Names for the bool fields</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood18" onchange="showOrHide('bloggood18', 'cat18');" />
+											<label>Name 1</label>
+										</div>
+										<div class="col">
+											<div id='cat18' style='display: none;'>
+												<input asp-for="BoolName1" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood19" onchange="showOrHide('bloggood19', 'cat19');" />
+											<label>Name 2</label>
+										</div>
+										<div class="col">
+											<div id='cat19' style='display: none;'>
+												<input asp-for="BoolName2" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12 center">
+											<input type="checkbox" id="bloggood20" onchange="showOrHide('bloggood20', 'cat20');" />
+											<label>Name 3</label>
+										</div>
+										<div class="col">
+											<div id='cat20' style='display: none;'>
+												<input asp-for="BoolName3" class="form-control" placeholder="Input name" />
+											</div>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="Save" class="w-100 btn btn-lg btn-primary" />
+					</div>
+
+		</form>
+	</div>
+</div>
+
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+	<script type="text/javascript">
+		function showOrHide(bloggood, cat) {
+			bloggood = document.getElementById(bloggood);
+			cat = document.getElementById(cat);
+			if (bloggood.checked) cat.style.display = "block";
+			else cat.style.display = "none";
+		}
+	</script>
+}

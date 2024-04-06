@@ -1,0 +1,42 @@
+﻿@model LoginViewModel
+
+@{
+	ViewData["Title"] = "Log in";
+}
+@section Scripts {
+    <script src="~/js/Log_in.js" asp-append-version="true"></script>
+}
+<link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+
+<html>
+<div class="materialContainer">
+   <div class="box">
+		<section>
+			<form id="account" method="post">
+				<div class="title">LOGIN</div>
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="input">
+					<input asp-for="Email" aria-required="true" />
+					<label asp-for="Email" ></label>
+					<span class="spin"></span>
+				</div>
+
+				<div class="input">
+					<input asp-for="Password" aria-required="true" />
+					<label asp-for="Password" ></label>
+					<span class="spin"></span>
+				</div>
+
+				<div>
+					<button id="login-submit" type="submit" class="button login">OK</button>
+				</div>
+				<div class="overbox">
+					<a asp-controller="Account" asp-action="Register">
+						<div class="material-button alt-2">
+							<span class="shape"></span>
+						</div>
+					</a>
+				</div>
+			</form>
+		</section>
+   </div>

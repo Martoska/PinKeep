@@ -1,0 +1,34 @@
+﻿
+:root {
+    --bs-light-rgb: 102, 79, 155;
+}
+
+body {
+    color: #c79fb4 !important;
+    background-color: #1c173ac9;
+}
+
+
+
+.bg-white {
+    --bs-bg-opacity: 1;
+    background-color:darkslateblue !important;
+}
+
+.table {
+    color: #c79fb4;
+    border-color: #c79fb4;
+}
+
+.text-to-change {
+    --bs-text-opacity: 1;
+    color: #c79fb4 !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #c79fb4 !important;
+}
+
+.card {
+    background-color: #1a0f58c9;
+}

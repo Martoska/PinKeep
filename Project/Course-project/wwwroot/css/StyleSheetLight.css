@@ -1,0 +1,33 @@
+﻿
+:root {
+    --bs-light-rgb: 171, 199, 139; /*171, 199, 139 цвет прямоугольничков*/
+}
+
+body {
+    color: #ED2553 !important; /* цвет шрифта*/
+    background-color: #defad4; /* цвет фона*/
+}
+
+
+.bg-white {
+    --bs-bg-opacity: 1;
+    background-color: #f9fcf7 !important; /* цвет верхнего футера*/
+}
+
+.table {
+    color: #9d7a78; /* цвет ткста в 5 последних обновлениях*/
+    border-color: #9d7a78; /* цвет полосочек в таблице*/
+}
+
+.text-to-change {
+    --bs-text-opacity: 1;
+    color: #5c911f !important; /*Цвет текста в верхнем футере*/
+}
+
+.border-bottom {
+    border-bottom: 1px solid #f9fcf7 !important;
+}
+
+.card {
+    background-color: #defad4; /*Цвет штучки где находится картинка*/
+}

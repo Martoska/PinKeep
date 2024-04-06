@@ -1,0 +1,164 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@model HomeViewModel
+
+<script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.js"> </script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="/js/changeStyle.js"></script>
+<section class="jumbotron text-center">
+	
+	<h1>Welcome to PinKeep!</h1>
+</section>
+
+
+
+<div class="album py-5 bg-light">
+<span class="content"></span>
+<div id="chartdiv"></div>
+</div>
+
+<section class="jumbotron text-center">
+<h1>5 newly created Boards</h1>
+</section>
+<table class="table">
+	<tr>
+		<th>
+			Board Name
+		</th>
+		<th>
+			Board Type
+		</th>
+		<th>
+			Links
+		</th>
+	</tr>
+	@foreach (var u in Model.Collections)
+	{
+		<tr>
+			<td>@u.Name</td>
+			<td>@u.Type</td>
+			<td>
+				<form method="post">
+					<a asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@u.Id">View Board</a> |
+					<a asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@u.Id">View Author</a>
+				</form>
+			</td>
+		</tr>
+	}
+</table>
+
+<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				@if (Model.Items.Count == 0)
+				{
+					<div class="row">
+						<h2>
+							<center>No pins yet<center>
+						</h2>
+					</div>
+				}
+				else
+				{
+				<section class="jumbotron text-center">
+				<h1>Newly created Pins </h1>
+				</section>
+				<h5>Page @Model.PageViewModel.PageNumber</h5>
+				foreach (var item in Model.Items)
+				{
+
+					<div class="col-md-4">
+						<div class="card mb-4 box-shadow">
+							@if (item.ImagePath != null)
+							{
+								<img class="card-img-top rounded-circle img-thumbnail img-sm" src="@item.ImagePath" alt="Card image cap">
+							}
+							else
+							{
+								<img class="card-img-top rounded-circle img-thumbnail img-sm" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+							}
+							<div class="card-body">
+								<p class="card-text">@Html.DisplayFor(modelItem => item.Name)</p>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group">
+										<a type="button" class="btn btn-sm btn-outline-primary" asp-area="" asp-controller="Items" asp-action="Details" asp-route-Id="@item.Id">View</a>
+										@if (Model.UserId == @item.AuthorId || User.IsInRole("admin"))
+										{
+											<a type="button" class="btn btn-sm btn-outline-secondary" asp-area="" asp-controller="Items" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+											<a type="button" class="btn btn-sm btn-outline-danger" asp-area="" asp-controller="Items" asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					}
+				}
+			</div>
+
+
+		@if (Model.PageViewModel.HasPreviousPage)
+		{
+		<a asp-action="Index"
+		   asp-controller="Home"
+		   asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+		   class="btn btn-outline-dark">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Previous
+		</a>
+		}
+		@if (Model.PageViewModel.HasNextPage)
+		{
+		<a asp-action="Index"
+		   asp-controller="Home"
+		   asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+		   class="btn btn-outline-dark">
+			Next
+			<i class="glyphicon glyphicon-chevron-right"></i>
+		</a>
+		}
+
+
+
+		<script type="text/javascript">
+			var yourJavaScriptArray = @Json.Serialize(Model.Tags);
+			am4core.useTheme(am4themes_moonrisekingdom);
+			am4core.useTheme(am4themes_animated);
+
+			var chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud);
+			chart.fontFamily = "Courier New";
+
+			var series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+			series.randomness = 0.1;
+			series.rotationThreshold = 0.5;
+			series.minFontSize = 30;
+
+			series.data = yourJavaScriptArray;
+			series.dataFields.word = "name";
+			series.dataFields.value = "name";
+
+			series.labels.template.events.on("hit", function (ev) {
+				var clickedTag = ev.target.tooltipDataItem.dataContext.name;
+				var newStr = clickedTag.substring(1);
+				var redirectUrl = "https://localhost:7047/Items/TagSearch/%23" + newStr;
+				window.location.href = redirectUrl;
+				console.log("Кликнутый тег:", clickedTag);
+				// Выполнение дополнительных действий с кликнутым тегом
+			});
+
+			series.heatRules.push({
+				"target": series.labels.template,
+				"property": "fill",
+				"min": am4core.color("#e52b50"),
+				"max": am4core.color("#ba153b"),
+				"dataField": "value"
+			});
+
+			var hoverState = series.labels.template.states.create("hover");
+			hoverState.properties.fill = am4core.color("#FF0000");
+		</script>

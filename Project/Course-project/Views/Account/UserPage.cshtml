@@ -1,0 +1,114 @@
+﻿@using Course_project.Models.Enums
+@model UserPageViewModel
+
+@{
+	ViewData["Title"] = "User page";
+}
+
+<div>
+	@if (User.Identity.IsAuthenticated)
+{
+@if (Model.UserName == User.Identity.Name){
+<h4>Light
+<label class="switch" >
+	<input href="#" onclick="changeCSS('/css/StyleSheetLight.css', 0);" type="checkbox" id="check-style">
+	<span class="slider round"></span>
+</label>
+ Dark
+		</h4>
+}
+}
+</div>
+<section class="jumbotron text-center">
+	<div class="container">
+		<h1 class="jumbotron-heading">@Model.UserName page</h1>
+		<p>
+			<form method="post">
+				<a asp-area="" asp-controller="Collection" asp-action="Create" class="btn btn-primary">+ board</a>
+			</form>
+		</p>
+	</div>
+</section>
+
+<div class="album py-5 bg-light">
+	<div class="container">
+		@if (Model.Collections.Count() == 0)
+		{
+			<div class="row">
+				<h2>
+					<center>No boards yet<center>
+				</h2>
+			</div>
+		}
+		else
+		{
+			<h1>Boards</h1>
+			<form method="get">
+				<div class="form-inline">
+					<select name="type" asp-items="@Html.GetEnumSelectList<CollectionType>()" class="form-control"></select>
+					<input type="submit" value="Filter" class="btn btn-outline-dark" />
+				</div>
+			</form>
+
+			<table class="table">
+				<tr>
+					<th>
+						<a asp-action="Index"
+					   asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+					   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+					   asp-route-type="@(Model.FilterViewModel.SelectedCompany)">Name</a>
+					</th>
+					<th>
+						<a asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.TypeSort)"
+					   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+					   asp-route-type="@(Model.FilterViewModel.SelectedCompany)">Type</a>
+					</th>
+					<th>
+						<a asp-action="Index"
+					   asp-route-page="@(Model.PageViewModel.PageNumber)">Links</a>
+					</th>
+				</tr>
+				@foreach (var u in Model.Collections)
+				{
+					<tr>
+						<td>@u.Name</td>
+						<td>@u.Type</td>
+						<td>
+							<form method="post">
+								<a asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@u.Id">View Board</a> |
+								<a asp-action="CollectionItems" asp-controller="Collection" asp-route-CollectionId="@u.Id">View Author</a>
+							</form>
+						</td>
+					</tr>
+
+
+				}
+			</table>
+			@if (Model.PageViewModel.HasPreviousPage)
+			{
+				<a asp-action="UserPage"
+		   asp-controller="Account"
+		   asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+		   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+		   asp-route-company="@(Model.FilterViewModel.SelectedCompany)"
+		   asp-route-sortorder="@(Model.SortViewModel.Current)"
+		   class="btn  btn-outline-dark">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+					Previous
+				</a>
+			}
+			@if (Model.PageViewModel.HasNextPage)
+			{
+				<a asp-action="UserPage"
+		   asp-controller="Account"
+		   asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+		   asp-route-name="@(Model.FilterViewModel.SelectedName)"
+		   asp-route-company="@(Model.FilterViewModel.SelectedCompany)"
+		   asp-route-sortorder="@(Model.SortViewModel.Current)"
+		   class="btn btn-outline-dark">
+					Next
+					<i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			}
+
+		}

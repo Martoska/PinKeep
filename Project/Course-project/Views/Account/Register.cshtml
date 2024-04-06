@@ -1,0 +1,51 @@
+﻿@model RegisterViewModel
+
+@{
+	ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+
+
+<div class="materialContainer">
+	<div class="box">
+		<form asp-controller="Account" asp-action="Register" method="post">
+			<div class="title">REGISTER</div>
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="input">
+				<input asp-for="Email" class="form-control" aria-required="true" />
+				<label asp-for="Email"></label>
+				<span asp-validation-for="Email" class="text-danger"></span>
+				<span class="spin"></span>
+			</div>
+
+			<div class="input">
+				<input asp-for="UserName" class="form-control" aria-required="true" />
+				<label asp-for="UserName"></label>
+				<span asp-validation-for="UserName" class="text-danger"></span>
+				<span class="spin"></span>
+			</div>
+
+			<div class="input">
+				<input asp-for="Password" class="form-control" aria-required="true" />
+				<label asp-for="Password"></label>
+				<span class="spin"></span>
+			</div>
+
+			<div class="input">
+				<input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+				<label asp-for="ConfirmPassword"></label>
+				<span class="spin"></span>
+			</div>
+
+			<div>
+				<button type="submit" class="button">NEXT</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="~/js/Log_in.js" asp-append-version="true"></script>
+	<partial name="_ValidationScriptsPartial" />
+}

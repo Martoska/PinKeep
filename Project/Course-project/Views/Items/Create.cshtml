@@ -1,0 +1,184 @@
+﻿@model CreateItemViewModel
+
+@{
+	ViewData["Title"] = "Create Item";
+}
+
+<h1>Create</h1>
+
+<h4>Pin</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post" asp-action="Create" enctype="multipart/form-data">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="ThisItem.Id" value="0" />
+			<input type="hidden" asp-for="ThisItem.AuthorId" value="@Model.ThisCollection.AuthorId" />
+			<input type="hidden" asp-for="ThisItem.CollectionId" value="@Model.ThisCollection.Id" />
+			<input type="hidden" asp-for="ThisCollection" />
+			<div class="form-group">
+				<label asp-for="ThisItem.Name" class="control-label"></label>
+				<input asp-for="ThisItem.Name" class="form-control" />
+				<span asp-validation-for="ThisItem.Name" class="text-danger"></span>
+			</div>
+			<div>
+				<!-- jQuery CDN  -->
+				<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+				<!-- Amsify Plugin -->
+				<link rel="stylesheet" href="/css/amsify.suggestags.css">
+				<script src="/js/jquery.amsify.suggestags.js"></script><!-- jQuery CDN  -->
+				<label class="control-label">Tags</label>
+				<input asp-for="InputedTags" type="text" class="form-control" name="tags">
+			</div>
+
+			@if (Model.ThisCollection.IntName1 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.IntName1</label>
+					<input asp-for="ThisItem.IntCustom1" class="form-control" />
+					<span asp-validation-for="ThisItem.IntCustom1" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.IntName2 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.IntName2</label>
+					<input asp-for="ThisItem.IntCustom2" class="form-control" />
+					<span asp-validation-for="ThisItem.IntCustom2" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.IntName3 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.IntName3</label>
+					<input asp-for="ThisItem.IntCustom3" class="form-control" />
+					<span asp-validation-for="ThisItem.IntCustom3" class="text-danger"></span>
+				</div>
+			}
+
+			@if (Model.ThisCollection.StringName1 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.StringName1</label>
+					<input asp-for="ThisItem.StringCustom1" class="form-control" />
+					<span asp-validation-for="ThisItem.StringCustom1" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.StringName2 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.StringName2</label>
+					<input asp-for="ThisItem.StringCustom2" class="form-control" />
+					<span asp-validation-for="ThisItem.StringCustom2" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.StringName3 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.StringName3</label>
+					<input asp-for="ThisItem.StringCustom3" class="form-control" />
+					<span asp-validation-for="ThisItem.StringCustom3" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.DateName1 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.DateName1</label>
+					<input asp-for="ThisItem.DateCustom1" class="form-control" />
+					<span asp-validation-for="ThisItem.DateCustom1" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.DateName2 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.DateName2</label>
+					<input asp-for="ThisItem.DateCustom2" class="form-control" />
+					<span asp-validation-for="ThisItem.DateCustom2" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.DateName3 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.DateName3</label>
+					<input asp-for="ThisItem.DateCustom3" class="form-control" />
+					<span asp-validation-for="ThisItem.DateCustom3" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.BoolName1 != null)
+			{
+				<div class="form-group form-check">
+					<label class="form-check-label">
+						<input class="form-check-input" asp-for="ThisItem.BoolCustom1" /> @Model.ThisCollection.BoolName1
+					</label>
+				</div>
+			}
+			@if (Model.ThisCollection.BoolName2 != null)
+			{
+				<div class="form-group form-check">
+					<label class="form-check-label">
+						<input class="form-check-input" asp-for="ThisItem.BoolCustom2" /> @Model.ThisCollection.BoolName2
+					</label>
+				</div>
+			}
+			@if (Model.ThisCollection.BoolName3 != null)
+			{
+				<div class="form-group form-check">
+					<label class="form-check-label">
+						<input class="form-check-input" asp-for="ThisItem.BoolCustom3" /> @Model.ThisCollection.BoolName3
+					</label>
+				</div>
+			}
+			@if (Model.ThisCollection.LargeStringName1 != null)
+			{
+				<div class="form-group">
+					<label class="control-label">@Model.ThisCollection.LargeStringName1</label>
+					<textarea asp-for="ThisItem.LargeDescriptionCustom1" class="form-control"></textarea>
+				</div>
+			}
+			@if (Model.ThisCollection.LargeStringName2 != null)
+			{
+				<div class="form-group">
+					<label asp-for="@Model.ThisCollection.LargeStringName2" class="control-label"></label>
+					<textarea><input asp-for="ThisItem.LargeDescriptionCustom2" class="form-control" /></textarea>
+					<span asp-validation-for="ThisItem.LargeDescriptionCustom2" class="text-danger"></span>
+				</div>
+			}
+			@if (Model.ThisCollection.LargeStringName3 != null)
+			{
+				<div class="form-group">
+					<label asp-for="@Model.ThisCollection.LargeStringName3" class="control-label"></label>
+					<textarea><input asp-for="ThisItem.LargeDescriptionCustom3" class="form-control" /></textarea>
+					<span asp-validation-for="ThisItem.LargeDescriptionCustom3" class="text-danger"></span>
+				</div>
+			}
+
+			<div class="form-group">
+				<label asp-for="Image" class="control-label"></label>
+				<input asp-for="Image" type="file" class="form-control form-control-lg" placeholder="Image" />
+				<span asp-validation-for="Image" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var yourJavaScriptArray = @Html.Raw(Json.Serialize(Model.Tags));
+	console.log(@Html.Raw(Json.Serialize(Model.InputedTags)))
+	$('input[name="tags"]').amsifySuggestags({
+		suggestions: yourJavaScriptArray
+	});
+</script>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}

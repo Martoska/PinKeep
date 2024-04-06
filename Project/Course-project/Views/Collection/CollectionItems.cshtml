@@ -1,0 +1,95 @@
+﻿@model CollectionItemsViewModel
+
+@{
+	ViewData["Title"] = "Collection Items";
+}
+
+<main role="main">
+
+	<div class="container">
+		<h1 class="jumbotron-heading">@Model.ThisCollection.Name</h1>
+		<h5 class="jumbotron-heading">Board type - @Model.ThisCollection.Type</h5>
+		<h5 class="jumbotron-heading">Description</h5>
+		<p class="lead text-muted">@Model.ThisCollection.Description</p>
+		<p>
+			<a asp-action="UserPage" asp-controller="Account" asp-route-id="@Model.ThisCollection.AuthorId" class="btn btn-secondary my-2">View Author</a>
+			@if (Model.UserId == Model.ThisCollection.AuthorId || User.IsInRole("admin"))
+			{
+				<a asp-area="" asp-controller="Items" asp-action="Create" asp-route-CollectionId="@Model.ThisCollection.Id" class="btn btn-primary my-2">+ pin</a>
+
+				<a asp-area="" asp-controller="Collection" asp-action="Delete" asp-route-id="@Model.ThisCollection.Id" class="btn btn-danger my-2">Delete board</a>
+			}
+		</p>
+	</div>
+
+
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				@if (Model.Items.Count == 0)
+				{
+					<div class="row">
+						<h2>
+							<center>No pins yet<center>
+						</h2>
+					</div>
+				}
+				else
+				{
+					<h5>Page @Model.PageViewModel.PageNumber</h5>
+					foreach (var item in Model.Items)
+					{
+						<div class="col-md-4">
+							<div class="card mb-4 box-shadow">
+								@if (item.ImagePath != null)
+								{
+									<img class="card-img-top" src="@item.ImagePath" alt="Card image cap">
+								}
+								else
+								{
+									<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+								}
+								<div class="card-body">
+									<p class="card-text">@Html.DisplayFor(modelItem => item.Name)</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<a type="button" class="btn btn-sm btn-outline-primary" asp-area="" asp-controller="Items" asp-action="Details" asp-route-Id="@item.Id">View</a>
+											@if (Model.UserId == Model.ThisCollection.AuthorId || User.IsInRole("admin"))
+											{
+												<a type="button" class="btn btn-sm btn-outline-secondary" asp-area="" asp-controller="Items" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+												<a type="button" class="btn btn-sm btn-outline-danger" asp-area="" asp-controller="Items" asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
+											}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					}
+				}
+			</div>
+
+			@if (Model.PageViewModel.HasPreviousPage)
+			{
+				<a asp-action="CollectionItems"
+			   asp-controller="Collection"
+			   asp-route-CollectionId="@Model.ThisCollection.Id"
+			   asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+			   class="btn btn-outline-dark">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+					Previous
+				</a>
+			}
+			@if (Model.PageViewModel.HasNextPage)
+			{
+				<a asp-action="CollectionItems"
+			   asp-controller="Collection"
+			   asp-route-CollectionId="@Model.ThisCollection.Id"
+			   asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+			   class="btn btn-outline-dark">
+					Next
+					<i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			}
+
+</main>

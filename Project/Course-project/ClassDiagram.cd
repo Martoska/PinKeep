@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Course_project.Controllers.AccountController">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAEAAABAAAAABAAAIAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Controllers.AdminController">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEFAAAAAAABAABAAAAAAAgAAEAACAABAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Data.ApplicationDbContext">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAACAAAAAAAAAABEAAAAEACAAAAAIAAIAA=</HashCode>
+      <FileName>Data\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Collections" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Course_project.Data.UserRoles">
+    <Position X="25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\UserRoles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;" Collapsed="true">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.Controller" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Course_project.Controllers.CollectionController">
+    <Position X="15.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAFACAAAAAAAAAAAEAAEAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CollectionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Controllers.CommentsLikesController">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAABIAABAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Controllers\CommentsLikesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Controllers.HomeController">
+    <Position X="13.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Controllers.ItemsController">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIBABFAAAAAAAAAAAAAFAAEACBAFAAAAAAAA=</HashCode>
+      <FileName>Controllers\ItemsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.Collection">
+    <Position X="19.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgyAAAABAAiAAAAGgABAAQAAIAAAAAAARAAAAAAABA=</HashCode>
+      <FileName>Models\Collection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.Comment">
+    <Position X="21.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAgAAAAAAAQAAQAAIAAAAAA=</HashCode>
+      <FileName>Models\Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.Item">
+    <Position X="18" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEB4AIAAAAIIAgAA4IUAAQAQAAAAABAAACAAAAA=</HashCode>
+      <FileName>Models\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.Like">
+    <Position X="25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Like.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.StyleConnections">
+    <Position X="23.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StyleConnections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.Tag">
+    <Position X="21.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Models.TagConnection">
+    <Position X="23.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\TagConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Services.PhotoService" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAkAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\PhotoService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Course_project.Helpers.CloudinarySettings">
+    <Position X="1.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEgAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\CloudinarySettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Helpers.ViewModelOptions">
+    <Position X="20.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAIIAAAAA=</HashCode>
+      <FileName>Helpers\ViewModelOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.Services.CommentHub">
+    <Position X="3.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Services\CommentHub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Account.LoginViewModel">
+    <Position X="11" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Account\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Account.RegisterViewModel">
+    <Position X="15.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\Account\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Account.UserPageViewModel">
+    <Position X="11" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAQAAAIAAAAA=</HashCode>
+      <FileName>ViewModels\Account\UserPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Collections.CollectionItemsViewModel">
+    <Position X="8.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAEAAAACAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Collections\CollectionItemsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Collections.CreateCollectionViewModel">
+    <Position X="6.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgwAAAABAAiAAAAGgABCAQAAIAAAIEEAQAAAAAAABA=</HashCode>
+      <FileName>ViewModels\Collections\CreateCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Collections.IndexCollectionViewModel">
+    <Position X="13.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAAAAIAAAAA=</HashCode>
+      <FileName>ViewModels\Collections\IndexCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Items.CreateItemViewModel">
+    <Position X="11" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAFAAAEAAAAAQAAA=</HashCode>
+      <FileName>ViewModels\Items\CreateItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Items.DetailsItemViewModel">
+    <Position X="13.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAACEQAAAAAAAAAAAAAACBAAAEAAAA=</HashCode>
+      <FileName>ViewModels\Items\DetailsItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Items.EditItemViewModel">
+    <Position X="15.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAIAAAAAAABAAAAAAAAAQAAA=</HashCode>
+      <FileName>ViewModels\Items\EditItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Items.IndexItemViewModel">
+    <Position X="8.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAACAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Items\IndexItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.Items.TagSearchViewModel">
+    <Position X="8.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Items\TagSearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.FilterViewModel">
+    <Position X="24" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\FilterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.HomeViewModel">
+    <Position X="13.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAACAgAAAAAAEAAAAAAAIAAAAA=</HashCode>
+      <FileName>ViewModels\HomeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.IndexAdminViewModel">
+    <Position X="15.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IndexAdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.PageViewModel">
+    <Position X="18.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAgAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\PageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_project.ViewModels.SortViewModel">
+    <Position X="22.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAgAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\SortViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Course_project.Interfaces.IPhotoService">
+    <Position X="1.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPhotoService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
